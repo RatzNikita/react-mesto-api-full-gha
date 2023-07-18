@@ -1,0 +1,8 @@
+.header__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: white;
+    display: inline-block;
+    margin-right: 24px;
+}

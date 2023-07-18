@@ -1,0 +1,18 @@
+.auth-screen__submit-btn {
+    margin: 185px 0 0;
+    padding: 0;
+    min-height: 50px;
+    color: black;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.auth-screen__submit-btn:hover {
+    background-color: rgba(255, 255, 255, .8);
+}

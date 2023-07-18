@@ -1,0 +1,13 @@
+.auth-screen__input {
+    box-sizing: border-box;
+    min-height: 27px;
+    margin: 0 0 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    border: 0;
+    border-bottom: 2px solid #CCCCCC;
+    background-color: black;
+    color: white;
+
+}

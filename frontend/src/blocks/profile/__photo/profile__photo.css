@@ -1,0 +1,7 @@
+.profile__photo {
+    position: center;
+    max-width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+

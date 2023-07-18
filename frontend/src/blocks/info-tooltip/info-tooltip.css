@@ -1,0 +1,14 @@
+.info-tooltip {
+    width: 430px;
+    height: 330px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    position: relative;
+    margin: 0 auto;
+    top: 0;
+    min-width: 430px;
+    max-height: 330px;
+    z-index: 1;
+    cursor: default;
+    text-align: center;
+}

@@ -1,0 +1,16 @@
+.elements {
+    max-width: calc(100% - 38px);
+    margin: 0 auto 0;
+    justify-content: space-between;
+    align-content: space-between;
+}
+@media (min-width: 768px) {
+    .elements {
+        max-width: calc(100% - 125px);
+    }
+}
+@media (min-width: 1280px) {
+    .elements {
+        max-width: calc(100% - 400px);
+    }
+}

@@ -1,0 +1,19 @@
+.footer {
+    margin: 0 auto 0;
+    color: #545454;
+    max-width: calc(100% - 38px);
+    padding: 50px 0 36px;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        max-width: calc(100% - 125px);
+    }
+}
+
+@media (min-width: 1280px) {
+    .footer {
+        max-width: calc(1280px - 400px);
+        padding: 69px 0 60px;
+    }
+}
