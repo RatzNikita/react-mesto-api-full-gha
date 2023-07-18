@@ -7,6 +7,10 @@ backend/*.log
 frontend/*.log
 npm-debug.log*
 
+#env
+backend/.env
+frontend/.env
+
 # dependencies
 /node_modules
 backend/node_modules
