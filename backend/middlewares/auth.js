@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const jwt = require('jsonwebtoken');
 const { handleException } = require('../exceptions/exceptions');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports = (req, res, next) => {

@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 const { handleException } = require('../exceptions/exceptions');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getUsers = (req, res) => User.find({})
@@ -67,7 +68,6 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.getUserInfo = (req, res, next) => {
-  console.log('getInfo')
   User.findById(req.user._id).select('+email')
     .then((user) => {
       res.send(user);
