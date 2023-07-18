@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://ratz-mesto-back.nomoredomains.xyz';
 
 export const register = (password, email) => {
     return fetch(`${BASE_URL}/signup`, {

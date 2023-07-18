@@ -16,13 +16,10 @@ let {NODE_ENV, PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb',ALLOWED
 
 mongoose.connect(DB_URL);
 
-if(NODE_ENV === 'production') {
-   ALLOWED_CORS = [
-    'https://praktikum.tk',
-    'http://praktikum.tk',
-    'localhost:3000'
-  ];
+if (NODE_ENV !== 'production') {
+  ALLOWED_CORS = 'http://localhost:3001'
 }
+
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
@@ -40,7 +37,7 @@ app.use((req, res, next) => {
   const {origin} = req.headers;
   const {method} = req;
   const requestHeaders = req.headers['access-control-request-headers'];
-  if (ALLOWED_CORS.includes(origin)) {
+  if (ALLOWED_CORS.split(', ').includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
   }
   const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
@@ -49,10 +46,14 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', requestHeaders);
     return res.end();
   }
-  if (NODE_ENV !== 'production') {
-    res.header('Access-Control-Allow-Origin', '*')
-  }
+
   next();
+});
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
 });
 
 app.use('/signin', loginValidation, login);
