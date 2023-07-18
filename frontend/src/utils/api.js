@@ -59,7 +59,6 @@ class Api {
     }
 
     getUserInfo() {
-        console.log(this._options.headers)
         return fetch(`${this._options.baseUrl}/users/me`, {
             method: 'GET', headers: this._options.headers
         })
