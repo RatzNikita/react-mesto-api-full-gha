@@ -41,7 +41,6 @@ export const checkToken = (token) => {
         }
     })
         .then(res => checkStatus(res))
-        .then(data => data.data)
 }
 
 function checkStatus(res) {
