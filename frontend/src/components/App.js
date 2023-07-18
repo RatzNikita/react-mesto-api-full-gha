@@ -28,13 +28,16 @@ const App = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        Promise.all([api.getUserInfo(), api.getInitialCards()])
-            .then(([user, initialCards]) => {
-                setCurrentUser(user)
-                setCards(initialCards)
-            })
-            .catch(err => console.log(err))
-    }, [])
+        if(loggedIn) {
+            api.setToken(localStorage.getItem('token'))
+            Promise.all([api.getUserInfo(), api.getInitialCards()])
+                .then(([user, initialCards]) => {
+                    setCurrentUser(user)
+                    setCards(initialCards)
+                })
+                .catch(err => console.log(err))
+        }
+    }, [loggedIn])
 
     const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard
 
@@ -150,7 +153,7 @@ const App = () => {
 
 
     return (
-        <AppContext.Provider value={{closeAllPopups, isLoading}}>
+        <AppContext.Provider value={{closeAllPopups, isLoading,setLoggedIn}}>
             <CurrentUserContext.Provider value={currentUser}>
                 <div className="page">
                     <Routes>

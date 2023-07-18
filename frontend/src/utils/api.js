@@ -59,6 +59,7 @@ class Api {
     }
 
     getUserInfo() {
+        console.log(this._options.headers)
         return fetch(`${this._options.baseUrl}/users/me`, {
             method: 'GET', headers: this._options.headers
         })
@@ -92,10 +93,14 @@ class Api {
     _checkStatus(res) {
         return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
     }
+
+    setToken(token) {
+        this._options.headers.authorization = `Bearer ${token}`
+    }
 }
 
 export const api = new Api({
-    baseUrl: 'ratz-mesto-back.nomoredomains.xyz', headers: {
-        'Content-Type': 'application/json'
+    baseUrl: 'http://localhost:3000', headers: {
+        authorization: 'Bearer ' + localStorage.getItem('token'), 'Content-Type': 'application/json'
     }
 });

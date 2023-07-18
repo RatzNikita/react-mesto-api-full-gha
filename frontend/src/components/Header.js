@@ -1,13 +1,17 @@
 import logo from "../images/logo-white.png";
 import {useLocation, useNavigate} from "react-router-dom";
+import {useContext} from "react";
+import {AppContext} from "../context/AppContext";
 
 const Header = ({email}) => {
 
     const navigate = useNavigate()
     const location = useLocation()
+    const {setLoggedIn} = useContext(AppContext)
 
     const handleLogout = () => {
         localStorage.removeItem('token')
+        setLoggedIn(false)
         navigate('/sign-in')
     }
 

@@ -26,8 +26,9 @@ export const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         auth.register(formValue.password, formValue.email).then((res) => {
-            if (res.data) {
+            if (res) {
                 setSuccess(true)
+                navigate('/sign-in')
             }
         }).catch(err => {
             setError(true)
